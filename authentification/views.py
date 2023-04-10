@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .classe_assistant import insertion_assistante ,modification_assistante,suppression_assistante
 from .classe_medecin import insertion_medcin ,modification_medcin,suppression_medcin
@@ -20,13 +20,13 @@ def login(request):
                
                request.session['stat']= 'doctor'
                
-               return render(request, 'medecin.html')
+               return redirect('/medecin')
 
           elif Email=="assistant@gmail.com" and password=='123':
                
                request.session['stat']= 'assistant'
                
-               return render(request, 'sec.html')
+               return redirect('/sec')
                     
           else:
 
